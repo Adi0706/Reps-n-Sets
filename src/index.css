@@ -235,7 +235,7 @@ video {
   text-align: left;
   width: 500px;
   text-shadow: 0px 0px 12px rgb(255, 255, 255);
-   opacity: 0; 
+  opacity: 0;
   animation: fadeIn 3s forwards;
 }
 
@@ -250,10 +250,9 @@ video {
   transform: translate(-50%, -50%);
   text-align: center;
   width: 900px;
-  opacity: 0; 
-  animation: fadeIn 2s forwards; 
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
-
 
 .text2 {
   color: rgb(0, 0, 0);
@@ -266,10 +265,9 @@ video {
   transform: translate(-50%, -50%);
   text-align: center;
   width: 900px;
-  opacity: 0; 
-  animation: fadeIn 2s forwards; 
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
-
 
 @keyframes fadeIn {
   0% {
@@ -279,26 +277,25 @@ video {
     opacity: 1;
   }
 }
-.FooterSec{
+.FooterSec {
   border: solid;
   border-color: black;
-    width: 100vw;
+  width: 100vw;
   height: 200px;
   object-fit: cover;
   position: relative;
   z-index: 1;
   background-color: rgb(0, 0, 0);
-
 }
 .FooterSec img {
-    display: block;
-    width: 190px;
-    height: 50px;
-    margin-left: 650px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  display: block;
+  width: 190px;
+  height: 50px;
+  margin-left: 650px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 .icon-tray {
   list-style: none;
@@ -314,4 +311,71 @@ video {
   text-decoration: none;
   color: white;
   margin: 0 10px; /* Adjust the left and right margins to reduce the gap */
+}
+.CalSec {
+  width: 100vw;
+  height: 100px;
+  object-fit: cover;
+  position: relative;
+}
+.calculate-cal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+#btn {
+  margin: 20px;
+  width: 200px;
+  height: 50px;
+  font-family: "poppins", "sans-seriff";
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: large;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px black;
+}
+#btn:hover {
+  background-color: rgb(158, 157, 157);
+  text-shadow: 0px 0px 12px rgb(255, 255, 255);
+  color: white;
+}
+.BulkSec {
+  border: solid;
+  border-color: rgb(248, 17, 17);
+  width: 100vw;
+  height: 500px;
+  object-fit: cover;
+  position: relative;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.CutSec{
+  border: solid;
+  border-color: rgb(248, 17, 17);
+  width: 100vw;
+  height: 500px;
+  object-fit: cover;
+  position: relative;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.BodySec{
+  border: solid;
+  border-color: rgb(248, 17, 17);
+  width: 100vw;
+  height: 500px;
+  object-fit: cover;
+  position: relative;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  
 }
