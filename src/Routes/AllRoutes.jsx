@@ -4,7 +4,7 @@ import Home from '../Pages/Home';
 import AboutUs from '../Pages/AboutUs/AboutUs';
 import Contact from '../Pages/Contact';
 import TrainingPlan from '../Pages/TrainingPlan';
-import DietPlan from '../Pages/DietPlan';
+import DietPlan from '../Pages/DietPlan/DietPlan';
 function AllRoutes() {
   return (
     <div>
