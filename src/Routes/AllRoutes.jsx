@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../Pages/Home';
 import AboutUs from '../Pages/AboutUs/AboutUs';
 import Contact from '../Pages/Contact';
-import TrainingPlan from '../Pages/TrainingPlan';
+import TrainingPlan from '../Pages/TrainingPlan/TrainingPlan';
 import DietPlan from '../Pages/DietPlan/DietPlan';
 function AllRoutes() {
   return (
