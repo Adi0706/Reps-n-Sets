@@ -5,6 +5,12 @@
   padding: 0;
   font-family: "poppins", "sans-seriff";
 }
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", "sans-serif";
+}
 .NavBar {
   position: relative;
   color: rgb(9, 8, 8);
@@ -317,6 +323,8 @@ video {
   height: 100px;
   object-fit: cover;
   position: relative;
+  background-color: black;
+  color: white;
 }
 .calculate-cal {
   display: flex;
@@ -336,7 +344,7 @@ video {
   cursor: pointer;
   border: none;
   border-radius: 50px;
-  box-shadow: 0px 0px 10px black;
+  box-shadow: 0px 0px 15px rgb(255, 254, 254);
 }
 #btn:hover {
   background-color: rgb(158, 157, 157);
@@ -344,8 +352,7 @@ video {
   color: white;
 }
 .BulkSec {
-  border: solid;
-  border-color: rgb(248, 17, 17);
+ 
   width: 100vw;
   height: 500px;
   object-fit: cover;
@@ -354,6 +361,45 @@ video {
   display: flex;
   justify-content: space-around;
 }
+.BulkSec .bulkimg img{
+  width: 800px;
+}
+.bulk-text {
+  font-size: smaller;
+  margin-left: 20px;
+  /* padding: 5px; */
+  text-align: left;
+  color: white;
+  width: 1000px;
+  max-width: 100%; /* Set a maximum width for the container */
+  overflow-x: hidden; /* Add scrolling when content exceeds the container */
+  overflow-y: scroll;
+}
+
+.bulk-text::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+
+}
+
+.bulk-text::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track (the area behind the scrollbar) */
+}
+
+.bulk-text::-webkit-scrollbar-thumb {
+  background: red; /* Color of the scrollbar thumb (the draggable handle) */
+}
+
+.bulk-text::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb when hovered */
+}
+
+.bulk-text ul {
+  list-style:circle;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
 
 .CutSec{
   border: solid;
