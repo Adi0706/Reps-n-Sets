@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import signup from '../Images/signup.jpg';
 import login from '../Images/login.jpg';
+import axios from 'axios' ; 
 
 const defaultTheme = createTheme();
 
@@ -22,6 +23,9 @@ function NavBar() {
   const [signupPopUP, setSignup] = useState(false);
   const [ishover, setIshover] = useState(false);
   const [popUp, setPopUp] = useState(false);
+  const [name,setName] = useState() ;
+  const[email,setEmail]=useState() ;
+  const[password,setPassword]=useState();
 
   const handleloginPopUP = () => {
     setLoginPopUp(true);
@@ -64,15 +68,12 @@ function NavBar() {
     });
   };
 
-  const handleSubmitSignup = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      Name: data.get('Name'),
-      Contact: data.get('Contact'),
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const handleSubmitSignup = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:3002/signups',name,email,password)
+    .then(result=>console.log(result))
+    .catch(err=>console.log(err)) ; 
+    
   };
 
   const openLoginPopup = () => {
@@ -200,7 +201,7 @@ function NavBar() {
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
                       >
-                        Sign In
+                        LOG IN
                       </Button>
                       <Grid container>
                         <Grid item>
@@ -289,17 +290,7 @@ function NavBar() {
                         name="Name"
                         autoComplete="Name"
                         autoFocus
-                      />
-                      <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="Contact"
-                        type="tel"
-                        label="Phone Number"
-                        name="contact"
-                        autoComplete="contact"
-                        autoFocus
+                        onChange={(e)=>setName(e.target.value)}
                       />
                       <TextField
                         margin="normal"
@@ -310,6 +301,7 @@ function NavBar() {
                         name="email"
                         autoComplete="email"
                         autoFocus
+                        onChange={(e)=>setEmail(e.target.value)}
                       />
                       <TextField
                         margin="normal"
@@ -320,14 +312,16 @@ function NavBar() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        onChange={(e)=>setPassword(e.target.value)}
                       />
                       <Button
                         type="submit"
                         fullWidth
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
+                        
                       >
-                        Sign In
+                        SIGN IN
                       </Button>
                       <Grid container>
                         <Grid item>
