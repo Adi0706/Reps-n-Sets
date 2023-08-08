@@ -1,15 +1,15 @@
 import React from "react";
-import bulkdiet from '../../Images/bulkdiet.jpg';
+import bodyrecomp from '../../Images/bodyrecomp.jpg';
 
 function Bulk() {
   return (
     <div className="BulkSec">
       <div className="bulkimg" >
-        <h1 style={{ color: "white" }}><img src={bulkdiet} alt="Bulk Diet" /></h1>
+        <h1 style={{ color: "white" }}><img src={bodyrecomp} alt="Bulk Diet" /></h1>
       </div>
       <div className="bulk-text" >
-        <h1 style={{ color: "white" }}>BULK : MAINTENANCE CALORIES + 500 CAL</h1>
-        <h3><u>FOOD ITEMS TO CONSUME DURING BULK</u></h3>
+        <h1 style={{ color: "white" }}>BODY RECOMPOSITION : AROUND  MAINTENANCE CALORIES </h1>
+        <h3><u>FOOD ITEMS TO CONSUME DURING BODY RECOMPOSITION</u></h3>
         <br/>
         <div className="food-category">
           <h2>HEALTHY FATS:</h2>
