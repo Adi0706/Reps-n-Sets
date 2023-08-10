@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import signup from '../Images/signup.jpg';
 import login from '../Images/login.jpg';
 import axios from 'axios' ; 
+import Alert from '@mui/material/Alert';
+
 
 const defaultTheme = createTheme();
 
@@ -26,6 +28,8 @@ function NavBar() {
   const [name,setName] = useState() ;
   const[email,setEmail]=useState() ;
   const[password,setPassword]=useState();
+  const [alertSeverity, setAlertSeverity] = useState('');
+  const [alertMessage, setAlertMessage] = useState('');
 
   const handleloginPopUP = () => {
     setLoginPopUp(true);
@@ -70,11 +74,54 @@ function NavBar() {
 
   const handleSubmitSignup = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3002/signups',name,email,password)
-    .then(result=>console.log(result))
-    .catch(err=>console.log(err)) ; 
+  
     
+    if (!name || !email || !password) {
+      setAlertSeverity('error');
+      setAlertMessage('Please fill in all fields');
+      return; 
+    }
+    
+    axios.post('http://localhost:3002/signups', {
+        name: name,
+        email: email,
+        password: password
+    })
+    .then(() => {
+      setAlertSeverity('success');
+      setAlertMessage('Account Created');
+      setSignup(false);
+  
+      // Clear the form fields
+      setName('');
+      setEmail('');
+      setPassword('');
+    })
+    .catch(err => {
+      console.log(err);
+      setAlertSeverity('error');
+      setAlertMessage('Error occurred');
+    }); 
   };
+  
+  
+  const renderAlert = () => {
+    if (alertMessage) {
+      setTimeout(() => {
+        setAlertMessage('');
+      }, 3000);
+  
+      return (
+        <div className="alert-container">
+          <Alert severity={alertSeverity} sx={{ display: "flex", alignItems: "center" }}>
+            {alertMessage}
+          </Alert>
+        </div>
+      );
+    }
+  };
+  
+
 
   const openLoginPopup = () => {
     setLoginPopUp(true);
@@ -343,6 +390,7 @@ function NavBar() {
 
   return (
     <div className="NavBar">
+      {renderAlert()}
       <Link to="/">
         <span className="logo">
           <img src={Logo} alt="Logo" />
@@ -371,9 +419,11 @@ function NavBar() {
           SIGN UP
         </button>
       </div>
+      
       {renderLogin()}
       {rendersignup()}
       {renderPopUp()}
+      
     </div>
   );
 }

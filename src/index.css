@@ -438,3 +438,14 @@ video {
   height: 90px;
 box-shadow: 0px 0px 20px black;
 }
+.alert-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 100; /* Bring the alert to the front */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
