@@ -76,18 +76,27 @@ function NavBar() {
         loginEmail: loginEmail,
         loginPassword: loginPassword
     })
-    .then((response) => {console.log(response)
-      navigate('/loginhome')
-        
-        // Clear the form fields
-        setLoginEmail('');
-        setLoginPassword('');
+    .then((response) => {
+        console.log(response); // Check the response data in the console
+
+        if (response.data) {
+            console.log(response);
+            navigate('/loginhome');
+
+            // Clear the form fields
+            setLoginEmail('');
+            setLoginPassword('');
+        } else {
+            alert('Email and password do not match.');
+        }
     })
     .catch(err => {
         console.log('An error occurred:', err);
         // Handle other errors, such as network errors
     });
 };
+
+
 
 
   const handleSubmitSignup = (e) => {
@@ -362,7 +371,7 @@ function NavBar() {
                         required
                         fullWidth
                         id="email"
-                        label="Email Address"
+                        label="Email Address Ex: abcd@xyz.com"
                         name="email"
                         autoComplete="email"
                         autoFocus

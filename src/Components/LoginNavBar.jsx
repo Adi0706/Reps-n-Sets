@@ -47,18 +47,18 @@ function LoginNavBar() {
   };
 
   return (
-    <div classsName='NavBar'>
-         return (
+  
+        
     <div className="NavBar">
       
-      <Link to="/">
+      <Link to="/loginHome">
         <span className="logo">
           <img src={Logo} alt="Logo" />
         </span>
       </Link>
       <ul className="list">
         <li>
-          <Link to="/">HOME</Link>
+          <Link to="/loginHome">HOME</Link>
         </li>
         <li>
           <Link to="/aboutus">ABOUT US</Link>
@@ -82,8 +82,8 @@ function LoginNavBar() {
       
     </div>
   );
-    </div>
-  )
+  
+
 }
 
 export default LoginNavBar
