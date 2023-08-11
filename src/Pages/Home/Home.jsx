@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from '../Components/NavBar';
-import Video from '../Components/Video';
+import NavBar from '../../Components/NavBar';
+import Video from '../../Components/Video';
 import { IoFitnessOutline } from 'react-icons/io5';
-import PageAnimation from '../Components/PageAnimation';
+import PageAnimation from '../../Components/PageAnimation';
 
 function Home() {
   const [popUp, setPopUp] = useState(false);

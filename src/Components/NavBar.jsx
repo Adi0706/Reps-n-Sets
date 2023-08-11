@@ -16,6 +16,7 @@ import signup from '../Images/signup.jpg';
 import login from '../Images/login.jpg';
 import axios from 'axios' ; 
 import Alert from '@mui/material/Alert';
+import { useNavigate } from 'react-router-dom';
 
 
 const defaultTheme = createTheme();
@@ -23,13 +24,16 @@ const defaultTheme = createTheme();
 function NavBar() {
   const [loginPopUP, setLoginPopUp] = useState(false);
   const [signupPopUP, setSignup] = useState(false);
-  const [ishover, setIshover] = useState(false);
-  const [popUp, setPopUp] = useState(false);
+  // const [ishover, setIshover] = useState(false);
+  // const [popUp, setPopUp] = useState(false);
   const [name,setName] = useState() ;
   const[email,setEmail]=useState() ;
   const[password,setPassword]=useState();
   const [alertSeverity, setAlertSeverity] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
+  const [loginEmail,setLoginEmail] = useState('') ;
+  const [loginPassword,setLoginPassword] = useState('') ; 
+  const navigate = useNavigate() ; 
 
   const handleloginPopUP = () => {
     setLoginPopUp(true);
@@ -47,35 +51,47 @@ function NavBar() {
     setSignup(false);
   };
 
-  const handlehover = () => {
-    setIshover(true);
-  };
+  // const handlehover = () => {
+  //   setIshover(true);
+  // };
 
-  const handleclosehover = () => {
-    setIshover(false);
-  };
+  // const handleclosehover = () => {
+  //   setIshover(false);
+  // };
 
-  const handleOpenPopup = () => {
-    setPopUp(true);
-  };
+  // const handleOpenPopup = () => {
+  //   setPopUp(true);
+  // };
 
-  const handleClosePopup = () => {
-    setPopUp(false);
-  };
+  // const handleClosePopup = () => {
+  //   setPopUp(false);
+  // };
 
-  const handleSubmitlogin = (event) => {
+
+
+  const handleSubmitLogin = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+
+    axios.post('http://localhost:3002/login', {
+        loginEmail: loginEmail,
+        loginPassword: loginPassword
+    })
+    .then((response) => {console.log(response)
+      navigate('/loginhome')
+        
+        // Clear the form fields
+        setLoginEmail('');
+        setLoginPassword('');
+    })
+    .catch(err => {
+        console.log('An error occurred:', err);
+        // Handle other errors, such as network errors
     });
-  };
+};
+
 
   const handleSubmitSignup = (e) => {
     e.preventDefault();
-  
-    
     if (!name || !email || !password) {
       setAlertSeverity('error');
       setAlertMessage('Please fill in all fields');
@@ -133,30 +149,30 @@ function NavBar() {
     setSignup(true);
   };
 
-  const renderPopUp = () => {
-    if (ishover || popUp) {
-      return (
-        <div
-          className="modal"
-          onMouseEnter={handlehover}
-          onMouseLeave={handleclosehover}
-        >
-          <ul className="plans">
-            <Link to="/trainingplan">
-              <li>
-                <span id="train-txt"></span>TRAINING PLAN
-              </li>
-            </Link>
-            <Link to="/dietplan">
-              <li>
-                <span className="diet-txt"></span>DIET PLAN
-              </li>
-            </Link>
-          </ul>
-        </div>
-      );
-    }
-  };
+  // const renderPopUp = () => {
+  //   if (ishover || popUp) {
+  //     return (
+  //       <div
+  //         className="modal"
+  //         onMouseEnter={handlehover}
+  //         onMouseLeave={handleclosehover}
+  //       >
+  //         <ul className="plans">
+  //           <Link to="/trainingplan">
+  //             <li>
+  //               <span id="train-txt"></span>TRAINING PLAN
+  //             </li>
+  //           </Link>
+  //           <Link to="/dietplan">
+  //             <li>
+  //               <span className="diet-txt"></span>DIET PLAN
+  //             </li>
+  //           </Link>
+  //         </ul>
+  //       </div>
+  //     );
+  //   }
+  // };
 
   const renderLogin = () => {
     if (loginPopUP === true) {
@@ -217,7 +233,7 @@ function NavBar() {
                     <Typography component="h1" variant="h5">
                       LOG IN
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmitlogin} sx={{ mt: 1 }}>
+                    <Box component="form" noValidate onSubmit={ handleSubmitLogin} sx={{ mt: 1 }}>
                       <TextField
                         margin="normal"
                         required
@@ -227,6 +243,7 @@ function NavBar() {
                         name="email"
                         autoComplete="email"
                         autoFocus
+                        onChange={(e)=>{setLoginEmail(e.target.value)}}
                       />
                       <TextField
                         margin="normal"
@@ -237,6 +254,7 @@ function NavBar() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        onChange={(e)=>{setLoginPassword(e.target.value)}}
                       />
                       <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
@@ -403,9 +421,9 @@ function NavBar() {
         <li>
           <Link to="/aboutus">ABOUT US</Link>
         </li>
-        <li onMouseEnter={handleOpenPopup} onMouseLeave={handleClosePopup}>
+        {/* <li onMouseEnter={handleOpenPopup} onMouseLeave={handleClosePopup}>
           PROGRAMS
-        </li>
+        </li> */}
         <li> 
           <Link to="/contact">FIND GYMS</Link>
         </li>
@@ -422,7 +440,7 @@ function NavBar() {
       
       {renderLogin()}
       {rendersignup()}
-      {renderPopUp()}
+      {/* {renderPopUp()} */}
       
     </div>
   );
