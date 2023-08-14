@@ -6,6 +6,9 @@ import Contact from '../Pages/Contact';
 import TrainingPlan from '../Pages/TrainingPlan/TrainingPlan';
 import DietPlan from '../Pages/DietPlan/DietPlan';
 import LoginHome from '../Pages/Home/LoginHome';
+import LoginAboutUs from '../Pages/AboutUs/LoginAboutUs';
+import Testimonials from '../Pages/Testimonials/Testimonials';
+import LoginTestimonials from '../Pages/Testimonials/LoginTestimonials';
 function AllRoutes() {
   return (
     <div>
@@ -16,6 +19,10 @@ function AllRoutes() {
         <Route path='/trainingplan' element={<TrainingPlan/>} />
         <Route path='/dietplan' element={<DietPlan/>} />
         <Route path='/loginHome' element={<LoginHome/>} />
+        <Route path='/LoginAbout' element={<LoginAboutUs/>}/>
+        <Route path='/Testimonials' element={<Testimonials/>}/>
+        <Route path='/LoginTestimonials' element={<LoginTestimonials/>}/>
+
       </Routes>
     </div>
   );

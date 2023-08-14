@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from '../Images/reps n sets.png';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState,useNavigate } from 'react';
 
 function LoginNavBar() {
      const [ishover, setIshover] = useState(false);
@@ -45,6 +45,10 @@ function LoginNavBar() {
       );
     }
   };
+  
+ 
+    
+  
 
   return (
   
@@ -61,7 +65,7 @@ function LoginNavBar() {
           <Link to="/loginHome">HOME</Link>
         </li>
         <li>
-          <Link to="/aboutus">ABOUT US</Link>
+          <Link to="/LoginAbout">ABOUT US</Link>
         </li>
         <li onMouseEnter={handleOpenPopup} onMouseLeave={handleClosePopup}>
           PROGRAMS
@@ -69,11 +73,15 @@ function LoginNavBar() {
         <li> 
           <Link to="/contact">FIND GYMS</Link>
         </li>
+        <li> 
+          <Link to="/LoginTestimonials">TESTIMONIALS</Link>
+        </li>
       </ul>
 
       <div className="Login-signup">
-        <button className="LOGIN">
-          WELCOME
+        <button className="LOGIN" >
+        <Link to='/' style={{textDecoration:"none",color:"black",
+  }}>SIGNOUT</Link> 
         </button>
       </div>
       

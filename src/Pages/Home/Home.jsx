@@ -22,7 +22,7 @@ function Home() {
           <span onClick={handleClose} style={{ position: 'absolute', top: '10px', right: '10px' ,cursor:"pointer"}}>
             X
           </span>
-          <div style={{display:"flex",alignItems:"center",fontWeight:"bold",justifyContent:"center"}}><b>LOG IN / SIGN UP TO GET ACCESS TO OUR TRAINING AND DIET PLANS.</b></div>
+          <div style={{display:"flex",alignItems:"center",fontWeight:"bold",justifyContent:"center"}}><b>LOG IN / SIGN UP TO GET ACCESS TO OUR SERVICES.</b></div>
         </div>
         </>
       );

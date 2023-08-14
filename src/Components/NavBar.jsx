@@ -68,35 +68,35 @@ function NavBar() {
   // };
 
 
-
   const handleSubmitLogin = (event) => {
     event.preventDefault();
+
+    if (!loginEmail || !loginPassword) {
+        alert('Please fill in both email and password fields.');
+        return;
+    }
 
     axios.post('http://localhost:3002/login', {
         loginEmail: loginEmail,
         loginPassword: loginPassword
     })
     .then((response) => {
-        console.log(response); // Check the response data in the console
+        console.log(response); 
 
-        if (response.data) {
+        if (response.data === 'Login Successful') {
             console.log(response);
             navigate('/loginhome');
 
-            // Clear the form fields
             setLoginEmail('');
             setLoginPassword('');
         } else {
-            alert('Email and password do not match.');
+            alert('Email or password do not match.');
         }
     })
     .catch(err => {
         console.log('An error occurred:', err);
-        // Handle other errors, such as network errors
     });
 };
-
-
 
 
   const handleSubmitSignup = (e) => {
@@ -112,7 +112,8 @@ function NavBar() {
         email: email,
         password: password
     })
-    .then(() => {
+    .then((response) => {
+      console.log('server response',response.data)
       setAlertSeverity('success');
       setAlertMessage('Account Created');
       setSignup(false);
@@ -264,10 +265,6 @@ function NavBar() {
                         id="password"
                         autoComplete="current-password"
                         onChange={(e)=>{setLoginPassword(e.target.value)}}
-                      />
-                      <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
                       />
                       <Button
                         type="submit"
@@ -434,7 +431,7 @@ function NavBar() {
           PROGRAMS
         </li> */}
         <li> 
-          <Link to="/contact">FIND GYMS</Link>
+          <Link to="/Testimonials">TESTIMONIALS</Link>
         </li>
       </ul>
 

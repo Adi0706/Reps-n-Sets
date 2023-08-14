@@ -9,6 +9,7 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 import NavBar from "../Components/NavBar";
+import LoginNavBar from "../Components/LoginNavBar";
 import Footer from "../Components/Footer";
 import PageAnimation from "../Components/PageAnimation";
 
@@ -17,22 +18,28 @@ const containerStyle = {
   height: "500px",
 };
 
+
 const center = {
   lat: 0, // Default latitude value
   lng: 0, // Default longitude value
 };
+const LIBRARIES = ["places"];
+const API_KEY = "AIzaSyAUvxVaNyuSsojZC7XhRMb8LKWlBaTbXj0"; // Replace with your actual API key
 
-function Contact() {
+// Custom hook to load Google Maps API
+function useGoogleMapsApi() {
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyAUvxVaNyuSsojZC7XhRMb8LKWlBaTbXj0",
-    libraries: ["places"],
+    googleMapsApiKey: API_KEY,
+    libraries: LIBRARIES,
   });
+
 
   const [userLocation, setUserLocation] = useState(null);
   const [gymsNearby, setGymsNearby] = useState([]);
   const [selectedGym, setSelectedGym] = useState(null);
   const [searchBox, setSearchBox] = useState(null);
   const mapRef = useRef(null);
+  const isLoggedIn = true; // Replace with your authentication logic
 
   useEffect(() => {
     // Get user's location
@@ -96,7 +103,7 @@ function Contact() {
   return (
     <PageAnimation>
       <div>
-        <NavBar />
+      {isLoggedIn ? <LoginNavBar /> : <NavBar />}
         <h1 style={{ marginLeft: "20px" }}>FIND GYMS NEAR YOU</h1>
         <StandaloneSearchBox onLoad={onLoadSearchBox} onPlacesChanged={onPlacesChanged}>
           <input
@@ -159,4 +166,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default useGoogleMapsApi;

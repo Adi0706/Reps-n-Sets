@@ -1,12 +1,10 @@
 import React from 'react'
 import LoginNavBar from '../../Components/LoginNavBar'
 
-function TrainingPlan() {
+function LoginTestimonials() {
   return (
-    <div>
-        <LoginNavBar />
-    </div>
+    <div><LoginNavBar/></div>
   )
 }
 
-export default TrainingPlan
+export default LoginTestimonials
