@@ -431,7 +431,7 @@ function NavBar() {
           PROGRAMS
         </li> */}
         <li> 
-          <Link to="/Testimonials">TESTIMONIALS</Link>
+          <Link to="/Testimonials">SUCCESS STORIES</Link>
         </li>
       </ul>
 

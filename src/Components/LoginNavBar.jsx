@@ -74,7 +74,7 @@ function LoginNavBar() {
           <Link to="/contact">FIND GYMS</Link>
         </li>
         <li> 
-          <Link to="/LoginTestimonials">TESTIMONIALS</Link>
+          <Link to="/LoginTestimonials">SUCCESS STORIES </Link>
         </li>
       </ul>
 
