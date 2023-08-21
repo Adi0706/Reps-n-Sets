@@ -5,8 +5,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -24,8 +22,6 @@ const defaultTheme = createTheme();
 function NavBar() {
   const [loginPopUP, setLoginPopUp] = useState(false);
   const [signupPopUP, setSignup] = useState(false);
-  // const [ishover, setIshover] = useState(false);
-  // const [popUp, setPopUp] = useState(false);
   const [name,setName] = useState() ;
   const[email,setEmail]=useState() ;
   const[password,setPassword]=useState();
@@ -51,21 +47,7 @@ function NavBar() {
     setSignup(false);
   };
 
-  // const handlehover = () => {
-  //   setIshover(true);
-  // };
 
-  // const handleclosehover = () => {
-  //   setIshover(false);
-  // };
-
-  // const handleOpenPopup = () => {
-  //   setPopUp(true);
-  // };
-
-  // const handleClosePopup = () => {
-  //   setPopUp(false);
-  // };
 
 
   const handleSubmitLogin = (event) => {

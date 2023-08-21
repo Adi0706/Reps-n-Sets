@@ -73,9 +73,7 @@ function LoginNavBar() {
         <li> 
           <Link to="/contact">FIND GYMS</Link>
         </li>
-        <li> 
-          <Link to="/LoginTestimonials">SUCCESS STORIES </Link>
-        </li>
+        
       </ul>
 
       <div className="Login-signup">
